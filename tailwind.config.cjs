@@ -20,9 +20,12 @@ module.exports = {
         },
 		extend: {
             dropShadow: {
-                'white': '0 10px 15px rgba(255,255,255,0.8)'
+                'white': '0 10px 15px rgba(255,255,255,0.8)',
+                'menu': '0 5px 20px #FFFFFF'
             }
         },
 	},
-	plugins: [],
+	plugins: [
+        require('tailwind-scrollbar-hide')
+    ],
 }

@@ -4,7 +4,7 @@ export let customClasses: string|null = null
 
 <section class="
     flex flex-col gap-8
-    items-center pt-20 px-8 pb-16
+    items-center pt-20 pb-16
     {customClasses}">
     <slot />
 </section>

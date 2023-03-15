@@ -10,6 +10,7 @@
 </script>
 
 <Banner customClasses={`
+    px-8
     bg-gradient-to-t ${bg[0]} ${bg[1]} bg-no-repeat
     group hover:brightness-105 duration-500`}>
     <div class="
