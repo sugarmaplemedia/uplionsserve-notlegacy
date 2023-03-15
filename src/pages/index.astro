@@ -1,80 +1,52 @@
 ---
-import SiteLayout from "src/layouts/SiteLayout.astro";
+import SiteLayout from "@layouts/SiteLayout.astro"
+import Banner from "@components/Banner.svelte"
+import BrandPreviews from "@components/BrandPreviews.svelte"
+import ProgramBanner from "@components/ProgramBanner.svelte"
 ---
-<SiteLayout 
-    title="U.P. Lions Serve"
-    description="Bringing diverse people together to serve their communities is what Lions Clubs are all about. U.P. Lions Serve is a branch of the District 10 Lions Club."
-    >
-    <main id="cause" class="cause">
-        <div id="top"></div>
-        <section>
-            <div class="introBanner">
-                <img src="media/brand/Logo-UPLS-White.svg" alt="U.P. Lions Serve Logo">
-                <p>Bringing diverse people together to serve their communities is what Lions Clubs are all about. Become part of the largest service and humanitarian organization in the world. Lions and Leos are raising awareness for our causes around the world.</p>
-                <div class="logoPreviewMobileTip">
-                        <p><span class="logoPreviewArrowTip">&#8735;</span>scroll<span class="logoPreviewArrowTip">&#8735;</span></p>
-                </div>
-                <div class="logoPreview">
-                    <a class="cc" href="childhoodcancer"><img src="media/logo-cc-white.svg" alt="Childhood Cancer logo"/></a>
-                    <a class="dad" href="defenseagainstdiabetes"><img src="media/logo-dad-white.svg" alt="Defense Against Diabetes logo"/></a>
-                    <a class="pks" href="#pks"><img src="media/logo-pks-white.svg" alt="Project KidSight logo"/></a>
-                    <a class="hg" href="#hg"><img src="media/logo-hunger-white.svg" alt="D10 Hunger logo"/></a>
-                </div>
-            </div>
-            <div id="cc" class="programBanner cc">
-                <a href="childhoodcancer" class="logoImgLink"><img class="programLogo" src="media/logo-cc-fullcolor.svg" alt="I Trekked the UP logo"/></a>
-                <div class="content">
-                    <h1>Childhood Cancer</h1>
-                    <p>Lions Clubs International has adopted Childhood Cancer as an initiative on a global level. Each year, more than 300,000 children are diagnosed with cancer across the world. This means that a child is diagnosed with cancer every 2 minutes. The Lions have begun working with this initiative to explore new ways in which Lions can help children with cancer in our own communities.</p>
-                    <a href="childhoodcancer" class="lm">Learn More</a>
-                </div>
-            </div>
-            <div id="dad" class="programBanner dad">
-                <a href="defenseagainstdiabetes" class="logoImgLink"><img class="programLogo " src="media/logo-dad-emblem-fullcolor.svg" alt="Defensive Against Diabetes Logo"/></a>
-                <div class="content">
-                    <h1>Defense Against Diabetes</h1>
-                    <p>We serve to reduce the prevalence of diabetes and to improve the quality of life for those living with diabetes in our communities. During this unprecedented time, the Lions of District 10 have responded with urgency and care developing initiatives and ways to help our communities.</p>
-                    <a href="defenseagainstdiabetes" class="lm">Learn More</a>
-                </div>
-            </div>
-            <div id="pks" class="programBanner pks">
-                <a href="#pks" class="logoImgLink"><img class="programLogo " src="media/logo-pks-fullcolor.svg" alt="Project KidSight Logo"/></a>
-                <div class="content">
-                    <h1>Project KidSight</h1>
-                    <p>Project KidSight is a program designed to identify treatable and preventable causes of vision loss in preschool children (ages 6 months to 5 years). Children of all ages can be screened but the target of this project is preschool children.</p>
-                    <a href="#pks" class="lm comingSoon">Coming Soon!</a>
-                </div>
-            </div>
-            <div id="hg" class="programBanner hg">
-                <a href="#hg" class="logoImgLink"><img class="programLogo" src="media/logo-hg-white.svg" alt="D10 Hunger logo"/></a>
-                <div class="content">
-                    <h1>More projects to come!</h1>
-                    <p></p>
-                    <a class="lm comingSoon">Coming Soon!</a>
-                </div>
-            </div>
-        </section>
-        <footer>
-            <section class="lionsLocator">
-                <iframe src="https://www.google.com/maps/d/u/2/embed?mid=1aoEvqY51HWsa2EdN16vJvD9tFESNYWrY&ehbc=2E312F" width="640" height="480"></iframe>
-            </section>
-            <section class="globalcauses">
-               <div class="shadow2">
-                      <div class="roundedbox">
-                         <p>Bringing diverse people together to serve their communities is what Lions Clubs are all about. Become part of the largest service and humanitarian organization in the world. Lions and Leos are raising awareness for our causes around the world.<br><br><span class="bold1">Interested in learning more about our 5 global causes?</span></p>
-                         <a href="https://www.lionsclubs.org/en/explore-our-clubs/our-global-causes"><img src="media/causes.svg" alt="causes" id="causes"></a>
-                         <img src="media/planet.png" alt="planet" id="causesplanet"/>
-                    </div>
-               </div>
-            </section>
-            <section>
-                <a href="#top"><img src="media/brand/Logo-UPLS-White.svg" alt="UP Lions Serve Logo"></a>
-                <div class="programBanner footerButtons">
-                    <a href="disclaimer.html" class="lm">Disclaimer</a>
-                    <a href="https://www.lionsclubs.org/en/footer/privacy-policy" class="lm">Privacy Policy</a>
-                    <a href="mailto:contact@uplionsserve.org" class="lm">Contact Us</a>
-                </div>
-            </section>
-        </footer>
-    </main>
+
+<SiteLayout
+    description="Test">
+    <Banner>
+        <div class="
+            w-3/4 max-w-lg lg:w-3/4 lg:max-w-4xl
+            flex flex-col gap-8">
+            <img src="graphics/brands/logo-upls-white.svg" />
+            <p class="font-bold">Bringing diverse people together to serve their communities is what Lions Clubs are all about. Become part of the largest service and humanitarian organization in the world. Lions and Leos are raising awareness for our causes around the world.</p>
+            <BrandPreviews />
+        </div>
+    </Banner>
+    <ProgramBanner 
+        title="Childhood Cancer"
+        description="Lions Clubs International has adopted Childhood Cancer as an initiative on a global level. Each year, more than 300,000 children are diagnosed with cancer across the world. This means that a child is diagnosed with cancer every 2 minutes. The Lions have begun working with this initiative to explore new ways in which Lions can help children with cancer in our own communities."
+        link="/childhood-cancer"
+        src="/graphics/brands/logo-cc-fullcolor.svg"
+        bg={["from-cc-gold", "to-cc-light-gold"]} />
+    <ProgramBanner 
+        title="Defense Against Diabetes"
+        description="We serve to reduce the prevalence of diabetes and to improve the quality of life for those living with diabetes in our communities. During this unprecedented time, the Lions of District 10 have responded with urgency and care developing initiatives and ways to help our communities."
+        link="/defense-against-diabetes"
+        src="/graphics/brands/logo-dad-fullcolor.svg"
+        bg={["from-dad-blue", "to-dad-light-blue"]} />
+    <ProgramBanner
+        title="Project KidSight"
+        description="Project KidSight is a program designed to identify treatable and preventable causes of vision loss in preschool children (ages 6 months to 5 years). Children of all ages can be screened but the target of this project is preschool children."
+        src="/graphics/brands/logo-pks-fullcolor.svg"
+        bg={["from-pks-pink", "to-pks-light-pink"]} />
+    <ProgramBanner
+        title="More projects to come!"
+        src="/graphics/brands/logo-hg-white.svg"
+        bg={["from-hg-green", "to-hg-light-green"]} />
+    <Banner>
+        <div class="
+            w-full max-w-2xl p-4 lg:w-3/4 lg:max-w-4xl
+            bg-white rounded-3xl
+            drop-shadow-white">
+            <iframe
+                src="https://www.google.com/maps/d/u/2/embed?mid=1aoEvqY51HWsa2EdN16vJvD9tFESNYWrY&ehbc=2E312F"
+                width="640"
+                height="480"
+                class="w-full rounded-xl"></iframe>
+        </div>
+    </Banner>
 </SiteLayout>
