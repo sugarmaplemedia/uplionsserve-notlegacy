@@ -7,14 +7,15 @@
     export let link: string|null = null
     export let src: string
     export let bg: string[]
+
 </script>
 
 <Banner customClasses={`
     px-8
-    bg-gradient-to-t ${bg[0]} ${bg[1]} bg-no-repeat
+    bg-gradient-to-t lg:bg-gradient-to-r ${bg[0]} ${bg[1]} bg-no-repeat
     group hover:brightness-105 duration-500`}>
     <div class="
-        max-w-lg lg:w-3/4 lg:max-w-4xl
+        max-w-lg lg:w-3/4 lg:max-w-4xl lg:py-8 xl:py-32 xl:max-w-5xl
         flex flex-col gap-8 lg:grid lg:grid-cols-5 lg:grid-rows-1 lg:gap-0
         items-center">
         {#if link}
@@ -35,13 +36,13 @@
             <img
                 {src}
                 alt={`${title} logo`}
-                class="w-64 h-24 ml-auto lg:w-3/4 lg:h-auto lg:max-h-48" />
+                class="w-64 max-h-64 ml-auto lg:w-3/4 lg:h-auto lg:max-h-48" />
         </span>
         {/if}
         <div class="
             flex flex-col gap-8 items-center lg:items-start
             lg:col-start-1 lg:col-end-4 lg:row-start-1">
-            <h2 class="text-3xl font-black text-center lg:text-4xl">{title}</h2>
+            <h2 class="text-3xl font-black text-center lg:text-4xl lg:text-left">{title}</h2>
             {#if description}
             <p class="font-bold">{description}</p>
             {/if}
@@ -50,32 +51,3 @@
         </div>
     </div>
 </Banner>
-
-<!-- <section class="
-    flex flex-col gap-8
-    items-center pt-20 px-8 pb-10
-    {`bg-gradient-to-t ${bg[0]} ${bg[1]}`} bg-no-repeat">
-
-    {#if link}
-    <a href={link}>
-        <img 
-            {src}
-            alt={`${title} logo`} 
-            class="w-64 h-24 m-auto" />
-    </a>
-    {:else}
-    <span>
-        <img 
-            {src}
-            alt={`${title} logo`} 
-            class="w-64 h-24 m-auto" />
-    </span>
-    {/if}
-
-    <h2 class="text-3xl font-black text-center">{title}</h2>
-    {#if description}
-    <p class="font-bold">{description}</p>
-    {/if}
-    
-    <Button href={link} text="Learn More" />
-</section> -->

@@ -8,16 +8,16 @@ import ProgramBanner from "@components/ProgramBanner.svelte"
 <SiteLayout
     description="Test">
     <Banner customClasses={`
-        h-[100vh]
+        h-[100vh] pt-48 md:pt-16 
         justify-center gap-12
         bg-gradient-to-t from-upls-orange to-upls-light-orange bg-no-repeat`}>
         <div class="
-            w-3/4 max-w-lg lg:w-3/4 lg:max-w-4xl
+            w-3/4 max-w-lg lg:w-3/4 lg:max-w-3xl xl:max-w-4xl
             flex flex-col gap-8">
             <img src="graphics/brands/logo-upls-white.svg" />
-            <p class="font-bold">Bringing diverse people together to serve their communities is what Lions Clubs are all about. Become part of the largest service and humanitarian organization in the world. Lions and Leos are raising awareness for our causes around the world.</p>
+            <p class="font-bold max-w-3xl mx-auto xl:pt-8">Bringing diverse people together to serve their communities is what Lions Clubs are all about. Become part of the largest service and humanitarian organization in the world. Lions and Leos are raising awareness for our causes around the world.</p>
         </div>
-        <BrandPreviews />
+        <BrandPreviews client:load />
     </Banner>
     <ProgramBanner 
         title="Childhood Cancer"
