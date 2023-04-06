@@ -133,7 +133,7 @@ const handleScroll = () => {
             <a on:click={handleMenu} href={import.meta.env.PUBLIC_CHILDHOODCANCER_URL}>Childhood Cancer</a>
             <a on:click={handleMenu} href={import.meta.env.PUBLIC_DEFENSEAGAINSTDIABETES_URL}>Defense Against Diabetes</a>
             <a on:click={handleMenu} href={import.meta.env.PUBLIC_PROJECTKIDSIGHT_URL}>Project Kidsight</a>
-            <a on:click={handleMenu} href={import.meta.env.PUBLIC_HUNGER_URL}>D10 Hunger</a>
+            <a on:click={handleMenu} href={import.meta.env.PUBLIC_HUNGER_URL}>Lions Hunger</a>
         </ul>
     </menu>
 </header>

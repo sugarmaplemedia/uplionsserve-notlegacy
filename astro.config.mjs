@@ -8,6 +8,5 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://uplionsserve.org',
-  trailingSlash: 'never',
   integrations: [svelte(), tailwind()]
 });
