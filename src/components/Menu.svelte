@@ -2,77 +2,138 @@
     import { debounce } from 'lodash-es'
 
 // Functionality for opening/closing hamburger menu
-/* ... */
+let menuOpen = false
+const handleMenu = () => {
+    menuOpen = !menuOpen
+}
+const handleMenuKey = (event: KeyboardEvent) => {
+    if (event.key === "Space" || event.key === "Enter") {
+        handleMenu()
+    }
+}
 
 
 // Functionality for bg color switch on scroll
-type scrollClassesType = {
-    header: string,
-    image: string,
-    before: string
-}
-let scrollClasses: scrollClassesType = {
-    header: "py-6",
-    image: "",
-    before: "before:h-0"
-}
 let atTop: boolean = true
+const initializeAtTop = () => {
+    if (window.scrollY > 50) {
+        atTop = false
+    }
+}
 const handleScroll = () => {
     const scrollPos: number = window.scrollY
     if (scrollPos <= 50 && atTop) {
         atTop = false
-        scrollClasses.header = "py-3"
-        scrollClasses.image = "brightness-100 invert-0"
-        scrollClasses.before = "before:h-full"
     } else if (scrollPos <= 50 && !atTop) {
         atTop = true
-        scrollClasses.header = "py-6"
-        scrollClasses.image = ""
-        scrollClasses.before = "before:h-0"
     }
 }
 </script>
 
-<svelte:window on:scroll={debounce(handleScroll, 100, {leading: true})} />
+<svelte:window on:load={initializeAtTop} on:scroll={debounce(handleScroll, 100, {leading: true})} />
 <header class="
-    w-full px-4
+    w-full
     fixed z-20
     flex justify-between items-center
     transition-all
-    {scrollClasses.header}
     
     before:w-full
-    before:absolute before:left-0 before:bottom-0
+    before:absolute before:left-0 before:bottom-0 before:z-20
     before:bg-white before:drop-shadow-menu
-    {scrollClasses.before}
-    before:transition-al before:duration-500">
-    <div class="flex items-center gap-2 h-16">
-        <img
-            src="/graphics/brands/logo-lions-uplscolor.svg"
-            alt="Lions Clubs International logo"
+    {atTop ? 'before:h-0' : 'before:h-full'}
+    before:transition-all before:duration-500">
+    <div class="
+            w-full px-4 sm:px-8 md:px-16
+            relative z-20
+            flex justify-between items-center gap-8
+            transition-all duration-500 ease-[cubic-bezier(.61, .16, .07, 1.46)]
+            {atTop ? 'pt-10 md:pt-16' : 'py-4'}">
+        <div class="flex items-center gap-8">
+            <div class="flex items-center gap-2 h-16">
+                <a href="https://lionsclubs.org/en">
+                    <img
+                        src="/graphics/brands/logo-lions-uplscolor.svg"
+                        alt="Lions Clubs International logo"
+                        class="w-16 {atTop ? 'brightness-0 invert' : 'brightness-100 invert-0'}"/>
+                </a>
+                <a href="/">
+                    <img
+                        src="/graphics/brands/logo-upls-short-uplscolor.svg"
+                        alt="U.P. Lions Serve abbreviated logo"
+                        class="w-28 {atTop ? 'brightness-0 invert' : 'brightness-100 invert-0'}"/>
+                </a>
+            </div>
+            <button
+                on:click={handleMenu}
+                class="
+                    relative z-50
+                    hidden md:flex gap-2
+                    uppercase
+                    cursor-pointer
+                    {atTop ? 'text-white' : 'text-upls-orange'}">
+                Service programs
+                <span class="block -rotate-45 -translate-y-1">&#x221F;</span>
+            </button>
+        </div>
+        <div
+            on:click={handleMenu}
+            on:keypress={handleMenuKey}
             class="
-                 w-16
-                brightness-0 invert
-                {scrollClasses.image}"/>
-        <img
-            src="/graphics/brands/logo-upls-short-uplscolor.svg"
-            alt="U.P. Lions Serve abbreviated logo"
-            class="
-                w-28
-                brightness-0 invert
-                {scrollClasses.image}"/>
+                w-10 md:hidden
+                relative z-10
+                flex flex-col items-end
+                cursor-pointer
+                transition-all duration-300 ease-[cubic-bezier(.61, .16, .07, 1.46)]
+                {!menuOpen ? 'gap-1.5' : 'gap-2'}">
+            <hr class="
+                    h-1.5
+                    rounded-full border-none
+                    transition-all duration-300 ease-[cubic-bezier(.61, .16, .07, 1.46)]
+                    {!menuOpen ? 'w-full' : 'w-1/2'}
+                    {atTop ? 'bg-white' : 'bg-upls-orange'}" />
+            <hr class="
+                    h-1.5
+                    rounded-full border-none
+                    transition-all duration-300 ease-[cubic-bezier(.61, .16, .07, 1.46)]
+                    {!menuOpen ? 'w-full' : 'w-3/4'}
+                    {atTop ? 'bg-white' : 'bg-upls-orange'}" />
+            <hr class="
+                    w-full h-1.5
+                    rounded-full border-none
+                    {atTop ? 'bg-white' : 'bg-upls-orange'}" />
+        </div>
+        <div class="hidden md:flex items-center gap-4">
+            <a href="https://facebook.com/uplionsserve" class="w-8 fill-upls-orange {atTop ? 'brightness-0 invert' : 'brightness-100 invert-0'}">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+            </a>
+            <a href="https://instagram.com/uplionsserve" class="w-8 fill-upls-orange {atTop ? 'brightness-0 invert' : 'brightness-100 invert-0'}">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+            </a>
+        </div>
     </div>
-    <div class="fill-white">
-        <svg viewBox="0 0 100 80" width="40" height="40">
-            <rect width="100" height="15" rx="8"></rect>
-            <rect y="30" width="100" height="15" rx="8"></rect>
-            <rect y="60" width="100" height="15" rx="8"></rect>
-        </svg>
-    </div>
-    <menu class="hidden">
-        <a href={import.meta.env.PUBLIC_CHILDHOODCANCER_URL}>Childhood Cancer</a>
-        <a href={import.meta.env.PUBLIC_DEFENSEAGAINSTDIABETES_URL}>Defense Against Diabetes</a>
-        <a href={import.meta.env.PUBLIC_PROJECTKIDSIGHT_URL}>Project Kidsight</a>
-        <a href={import.meta.env.PUBLIC_D10HUNGER_URL}>D10 Hunger</a>
+    <menu class="
+        w-full pt-32 pr-4 md:w-auto md:pt-0
+        fixed top-0 -z-10 md:static md:top-auto md:z-0
+        flex justify-end md:block
+        {!menuOpen ? 'invisible md:visible' : 'visible'}">
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <div on:click={handleMenu} class="
+                w-screen h-screen
+                fixed top-0 left-0 -z-30
+                transition-all duration-300 ease-[cubic-bezier(.61, .16, .07, 1.46)]
+                {!menuOpen ? 'backdrop-blur-none brightness-100 md:invisible' : 'backdrop-blur-md brightness-90'}"></div>
+        <ul class="
+                md:pl-[17.25rem]
+                relative z-30 md:absolute md:top-0 left-0
+                flex flex-col gap-6 items-end md:gap-2 md:items-start
+                text-2xl font-bold md:text-lg
+                transition-all duration-300 ease-[cubic-bezier(.61, .16, .07, 1.46)]
+                {!menuOpen ? 'opacity-0 invisible' : 'opacity-100 visited:'}
+                {atTop ? 'md:pt-32' : 'md:pt-28'}">
+            <a on:click={handleMenu} href={import.meta.env.PUBLIC_CHILDHOODCANCER_URL}>Childhood Cancer</a>
+            <a on:click={handleMenu} href={import.meta.env.PUBLIC_DEFENSEAGAINSTDIABETES_URL}>Defense Against Diabetes</a>
+            <a on:click={handleMenu} href={import.meta.env.PUBLIC_PROJECTKIDSIGHT_URL}>Project Kidsight</a>
+            <a on:click={handleMenu} href={import.meta.env.PUBLIC_HUNGER_URL}>D10 Hunger</a>
+        </ul>
     </menu>
 </header>
