@@ -169,7 +169,7 @@ const handleScroll = () => {
         {!menuOpen ? 'invisible md:visible' : 'visible'}">
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div on:click={handleMenu} class="
-                w-screen h-[100svh]
+                w-screen h-[100dvh]
                 fixed top-0 left-0 -z-30
                 transition-all duration-300 ease-[cubic-bezier(.61, .16, .07, 1.46)]
                 {!menuOpen ? 'backdrop-blur-none brightness-100 md:invisible' : 'backdrop-blur-md brightness-90'}"></div>
@@ -190,7 +190,7 @@ const handleScroll = () => {
                     flex flex-col justify-end items-end
                     grow">
                 <div class="
-                        w-full max-w-xs py-4 px-6 sm:py-0 sm:pb-2
+                        w-full sm:max-w-xs py-4 px-6 sm:py-0 sm:pb-2
                         bg-white rounded-md
                         text-upls-orange text-center
                         cursor-pointer">
