@@ -189,7 +189,7 @@ const handleScroll = () => {
             <a on:click={handleMenu} href={import.meta.env.PUBLIC_PROJECTKIDSIGHT_URL}>Project Kidsight</a>
             <a on:click={handleMenu} href={import.meta.env.PUBLIC_HUNGER_URL}>D10 Hunger</a>
             <div class="
-                    pb-16
+                    pb-24
                     md:hidden w-full 
                     flex flex-col justify-end items-end
                     grow">
