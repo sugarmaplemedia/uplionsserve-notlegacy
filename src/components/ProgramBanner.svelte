@@ -3,6 +3,7 @@
     import Button from "./Button.svelte";
 
     export let title: string
+    export let id: string|null = null
     export let description: string|null = null
     export let link: string|null = null
     export let src: string
@@ -10,7 +11,7 @@
 
 </script>
 
-<Banner customClasses={`
+<Banner {id} customClasses={`
     px-8
     bg-gradient-to-t lg:bg-gradient-to-r ${bg[0]} ${bg[1]} bg-no-repeat
     group hover:brightness-105 duration-500`}>
@@ -36,7 +37,7 @@
             <img
                 {src}
                 alt={`${title} logo`}
-                class="w-64 max-h-64 ml-auto lg:w-3/4 lg:h-auto lg:max-h-48" />
+                class="w-64 max-h-64 ml-auto lg:w-3/4 lg:h-auto" />
         </span>
         {/if}
         <div class="

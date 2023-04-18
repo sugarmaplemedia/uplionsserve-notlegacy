@@ -24,4 +24,4 @@
         after:border-[1px] after:border-solid after:border-white
         after:translate-x-[6px] after:translate-y-[-3px]
         {href ? 'hover:after:translate-x-0 hover:after:translate-y-0' : 'hover:after:translate-x-[-6px] hover:after:translate-y-[3px]'}
-        after:duration-500 after:ease-[cubic-bezier(.61, .16, .07, 1.46)]">{href ? text : "Unavailable" }</a>
+        after:duration-500 after:ease-[cubic-bezier(.61, .16, .07, 1.46)]">{href ? text : "Coming soon" }</a>
