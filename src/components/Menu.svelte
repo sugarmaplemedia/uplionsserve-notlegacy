@@ -82,7 +82,10 @@ const handleScroll = () => {
                     cursor-pointer
                     {atTop ? 'text-white' : 'text-upls-orange'}">
                 Service programs
-                <span class="block -rotate-45 -translate-y-1">&#x221F;</span>
+                <span class="
+                        block
+                        transition-all duration-200 ease-[cubic-bezier(.61, .16, .07, 1.46)]
+                        {menuOpen ? 'rotate-[135deg] translate-y-[3.5px]' : '-rotate-45 -translate-y-[2.5px]'}">&#x221F;</span>
             </button>
         </div>
         <div
@@ -186,6 +189,7 @@ const handleScroll = () => {
             <a on:click={handleMenu} href={import.meta.env.PUBLIC_PROJECTKIDSIGHT_URL}>Project Kidsight</a>
             <a on:click={handleMenu} href={import.meta.env.PUBLIC_HUNGER_URL}>D10 Hunger</a>
             <div class="
+                    pb-16
                     md:hidden w-full 
                     flex flex-col justify-end items-end
                     grow">
