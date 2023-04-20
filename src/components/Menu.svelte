@@ -51,7 +51,8 @@ const handleScroll = () => {
     before:absolute before:left-0 before:bottom-0 before:z-20
     before:bg-white before:drop-shadow-menu
     {atTop ? 'before:h-0' : 'before:h-full'}
-    before:transition-all before:duration-500">
+    {donationOpen ? 'md:before:translate-y-0' : 'md:before:-translate-y-[189px]'}
+    before:transition-all before:duration-300">
     <div class="
             w-full px-4 sm:px-8 md:px-16
             relative z-20
@@ -127,37 +128,55 @@ const handleScroll = () => {
                     flex-col justify-end items-end
                     grow">
                 <div class="
-                        w-full max-w-xs md:w-44
-                        rounded-md
+                        w-full max-w-xs md:w-44 overflow-hidden
+                        relative
+                        rounded-t-md
                         text-center
                         cursor-pointer
-                        transition-all 
-                        {atTop ? 'bg-white text-upls-orange' : 'bg-upls-orange text-white'}">
+                        transition-all">
                     <div 
                         on:keypress={handleDonation}
                         on:click={handleDonation}
-                        class="py-3">
-                        <span class="">Donate</span>
+                        class="
+                            pt-3 pb-2.5
+                            relative z-10
+                            transition-all duration-300
+                            {atTop ? 'bg-white text-upls-orange' : 'bg-upls-orange text-white'}">
+                        <span class="select-none">Donate</span>
                         <span class="
                             inline-block
                             transition-all duration-200 ease-[cubic-bezier(.61, .16, .07, 1.46)]
-                            {donationOpen ? 'rotate-[135deg] translate-y-[3.5px]' : '-rotate-45 -translate-y-[2.5px]'}">&#x221F;</span>
+                            {donationOpen ? 'rotate-[135deg] translate-y-[3.5px]' : '-rotate-45 -translate-y-[2.5px]'}
+                            select-none">&#x221F;</span>
                     </div>
                     <div class="
-                            overflow-hidden
+                            z-0
                             transition-all duration-300
-                            {donationOpen ? 'h-44 pb-8' : 'h-0 pb-0'}">
-                        <div class="mx-2 bg-white rounded-md">
-                            <a
-                                href="https://service.thrivent.com/apps/ThriventChoiceMemberWeb/public/orgDetails/100864474940"
-                                class="block py-8 px-6">
-                                <img src="/graphics/brands/logo-thrivent.svg" alt="Thrivent logo" />
+                            {donationOpen ? 'translate-y-0' : '-translate-y-[189px]'}">
+                        <div class="
+                                p-2
+                                flex flex-col gap-2 
+                                {atTop ? 'bg-white' : 'bg-upls-orange'} rounded-b-md
+                                text-[#000] font-bold
+                                transition-all duration-300">
+                            <!-- TODO: Fix CC link on website launch -->
+                            <a 
+                                href="{import.meta.env.PUBLIC_CHILDHOODCANCER_URL}/#donation"
+                                class="py-2 hover:bg-[#f4f4f4] rounded-md transition-all">
+                                Childhood Cancer
                             </a>
                             <hr class="mx-8 border-[rgba(0,0,0,0.075)]" />
-                            <a
-                                href="https://causes.benevity.org/"
-                                class="block py-[1.125rem] px-4">
-                                <img src="/graphics/brands/logo-benevity.svg" alt="Benevity logo"/>
+                            <a 
+                                href="{import.meta.env.PUBLIC_DEFENSEAGAINSTDIABETES_URL}/#donation"
+                                class="py-2 hover:bg-[#f4f4f4] rounded-md transition-all">
+                                Defense Against Diabetes
+                            </a>
+                            <hr class="mx-8 border-[rgba(0,0,0,0.075)]" />
+                            <!-- Change on site launch -->
+                            <a 
+                                href="https://donorbox.org/lions-hunger" 
+                                class="py-2 hover:bg-[#f4f4f4] rounded-md transition-all">
+                                Lions Hunger
                             </a>
                         </div>
                     </div>
@@ -169,63 +188,74 @@ const handleScroll = () => {
         w-full h-screen md:h-auto pt-32 pr-4 md:w-auto md:pt-0
         fixed top-0 -z-10 md:static md:top-auto md:z-0
         flex justify-end md:block
-        {!menuOpen ? 'invisible md:visible' : 'visible'}">
+        {menuOpen ? 'invisible md:visible' : 'visible'}">
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div on:click={handleMenu} class="
                 w-screen h-[100dvh]
                 fixed top-0 left-0 -z-30
                 transition-all duration-300 ease-[cubic-bezier(.61, .16, .07, 1.46)]
-                {!menuOpen ? 'backdrop-blur-none brightness-100 md:invisible' : 'backdrop-blur-md brightness-90'}"></div>
+                {menuOpen ? 'backdrop-blur-none brightness-100 md:invisible' : 'backdrop-blur-md brightness-90'}"></div>
         <ul class="
                 w-full md:w-auto h-full md:h-auto pl-4 md:pl-[17.25rem] pb-4 md:pb-0
                 relative z-30 md:absolute md:top-0 left-0
                 flex flex-col gap-6 items-end md:gap-2 md:items-start
                 text-2xl font-bold md:text-lg
                 transition-all duration-300 ease-[cubic-bezier(.61, .16, .07, 1.46)]
-                {!menuOpen ? 'opacity-0 invisible' : 'opacity-100 visited:'}
+                {menuOpen ? 'opacity-0 invisible' : 'opacity-100 visited:'}
                 {atTop ? 'md:pt-32' : 'md:pt-28'}">
             <a on:click={handleMenu} href={import.meta.env.PUBLIC_CHILDHOODCANCER_URL}>Childhood Cancer</a>
             <a on:click={handleMenu} href={import.meta.env.PUBLIC_DEFENSEAGAINSTDIABETES_URL}>Defense Against Diabetes</a>
             <a on:click={handleMenu} href={import.meta.env.PUBLIC_PROJECTKIDSIGHT_URL}>Project Kidsight</a>
             <a on:click={handleMenu} href={import.meta.env.PUBLIC_HUNGER_URL}>D10 Hunger</a>
             <div class="
-                    pb-24
-                    md:hidden w-full 
-                    flex flex-col justify-end items-end
-                    grow">
+                    w-full md:w-44 overflow-hidden
+                    relative
+                    rounded-t-md
+                    text-center
+                    cursor-pointer
+                    transition-all">
+                <div 
+                    on:keypress={handleDonation}
+                    on:click={handleDonation}
+                    class="
+                        pt-6 pb-5
+                        relative z-10
+                        bg-white text-upls-orange">
+                    <span class="select-none">Donate</span>
+                    <span class="
+                        inline-block
+                        transition-all duration-200 ease-[cubic-bezier(.61, .16, .07, 1.46)]
+                        {donationOpen ? 'rotate-[135deg] translate-y-[3.5px]' : '-rotate-45 -translate-y-[2.5px]'}
+                        select-none">&#x221F;</span>
+                </div>
                 <div class="
-                        w-full sm:max-w-xs py-4 px-6 sm:py-0 sm:pb-2
-                        bg-white rounded-md
-                        text-upls-orange text-center
-                        cursor-pointer">
+                        z-0
+                        transition-all duration-300
+                        {donationOpen ? 'translate-y-0' : '-translate-y-[236px]'}">
                     <div class="
-                            overflow-hidden
-                            transition-all duration-300
-                            {donationOpen ? 'h-52 pb-8' : 'h-0 pb-0'}">
-                        <div class="
-                                transition-all duration-200">
-                            <a
-                                href="https://service.thrivent.com/apps/ThriventChoiceMemberWeb/public/orgDetails/100864474940"
-                                class="block py-8 px-16">
-                                <img src="/graphics/brands/logo-thrivent.svg" alt="Thrivent logo" />
-                            </a>
-                            <hr class="mx-8 border-[rgba(0,0,0,0.075)]" />
-                            <a
-                                href="https://causes.benevity.org/"
-                                class="block py-6 px-12">
-                                <img src="/graphics/brands/logo-benevity.svg" alt="Benevity logo"/>
-                            </a>
-                        </div>
-                    </div>
-                    <div 
-                        on:keypress={handleDonation}
-                        on:click={handleDonation}
-                        class="pt-6 pb-4">
-                        <span class="">Donate</span>
-                        <span class="
-                            inline-block
-                            transition-all duration-200 ease-[cubic-bezier(.61, .16, .07, 1.46)]
-                            {donationOpen ? 'rotate-[135deg] translate-y-[3.5px]' : '-rotate-45 -translate-y-[2.5px]'}">&#x221F;</span>
+                            p-2
+                            flex flex-col gap-2 
+                            bg-white rounded-b-md
+                            text-[#000] font-bold">
+                        <!-- TODO: Fix CC link on website launch -->
+                        <a 
+                            href="{import.meta.env.PUBLIC_CHILDHOODCANCER_URL}/#donation"
+                            class="py-4 hover:bg-[#f4f4f4] rounded-md transition-all">
+                            Childhood Cancer
+                        </a>
+                        <hr class="mx-8 border-[rgba(0,0,0,0.075)]" />
+                        <a 
+                            href="{import.meta.env.PUBLIC_DEFENSEAGAINSTDIABETES_URL}/#donation"
+                            class="py-4 hover:bg-[#f4f4f4] rounded-md transition-all">
+                            Defense Against Diabetes
+                        </a>
+                        <hr class="mx-8 border-[rgba(0,0,0,0.075)]" />
+                        <!-- Change on site launch -->
+                        <a 
+                            href="https://donorbox.org/lions-hunger" 
+                            class="py-4 hover:bg-[#f4f4f4] rounded-md transition-all">
+                            Lions Hunger
+                        </a>
                     </div>
                 </div>
             </div>
