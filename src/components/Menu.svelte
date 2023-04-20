@@ -188,27 +188,27 @@ const handleScroll = () => {
         w-full h-screen md:h-auto pt-32 pr-4 md:w-auto md:pt-0
         fixed top-0 -z-10 md:static md:top-auto md:z-0
         flex justify-end md:block
-        {menuOpen ? 'invisible md:visible' : 'visible'}">
+        {!menuOpen ? 'invisible md:visible' : 'visible'}">
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div on:click={handleMenu} class="
                 w-screen h-[100dvh]
                 fixed top-0 left-0 -z-30
                 transition-all duration-300 ease-[cubic-bezier(.61, .16, .07, 1.46)]
-                {menuOpen ? 'backdrop-blur-none brightness-100 md:invisible' : 'backdrop-blur-md brightness-90'}"></div>
+                {!menuOpen ? 'backdrop-blur-none brightness-100 md:invisible' : 'backdrop-blur-md brightness-90'}"></div>
         <ul class="
                 w-full md:w-auto h-full md:h-auto pl-4 md:pl-[17.25rem] pb-4 md:pb-0
                 relative z-30 md:absolute md:top-0 left-0
                 flex flex-col gap-6 items-end md:gap-2 md:items-start
                 text-2xl font-bold md:text-lg
                 transition-all duration-300 ease-[cubic-bezier(.61, .16, .07, 1.46)]
-                {menuOpen ? 'opacity-0 invisible' : 'opacity-100 visited:'}
+                {!menuOpen ? 'opacity-0 invisible' : 'opacity-100 visited:'}
                 {atTop ? 'md:pt-32' : 'md:pt-28'}">
             <a on:click={handleMenu} href={import.meta.env.PUBLIC_CHILDHOODCANCER_URL}>Childhood Cancer</a>
             <a on:click={handleMenu} href={import.meta.env.PUBLIC_DEFENSEAGAINSTDIABETES_URL}>Defense Against Diabetes</a>
             <a on:click={handleMenu} href={import.meta.env.PUBLIC_PROJECTKIDSIGHT_URL}>Project Kidsight</a>
             <a on:click={handleMenu} href={import.meta.env.PUBLIC_HUNGER_URL}>D10 Hunger</a>
             <div class="
-                    w-full md:w-44 overflow-hidden
+                    md:hidden w-full md:w-44 overflow-hidden
                     relative
                     rounded-t-md
                     text-center
