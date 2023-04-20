@@ -1,6 +1,7 @@
 <script lang="ts">
     export let href: string|null = null
     export let text: string
+    export let small: boolean = false
 
     let target: string = "_self"
     if (href && href.includes("http")) target = "_blank"
@@ -8,8 +9,8 @@
 
 <a {href} {target} aria-label="button" class="
         relative
-        w-52 p-3 bg-gradient-to-br from-[rgba(255,255,255,0.3)] to-[rgba(255,255,255,0)]
-        font-black uppercase text-lg text-center
+        {small ? 'w-40' : 'w-52'} p-3 bg-gradient-to-br from-[rgba(255,255,255,0.3)] to-[rgba(255,255,255,0)]
+        font-black uppercase {small ? 'text-base' : 'text-lg'} text-center
         {href ? '' : 'opacity-70 cursor-not-allowed'}
 
         before:absolute before:top-0 before:left-0

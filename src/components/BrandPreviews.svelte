@@ -89,14 +89,14 @@
                     duration-700 ease-[cubic-bezier(.61, .16, .07, 1.46)]"/>
         </a>
         <a href={import.meta.env.PUBLIC_HUNGER_URL} class="
-            m-10 mr-[50%] md:m-0 md:translate-y-1
+            m-10 mr-[50%] md:mx-0
             block snap-center
             group">
             <img
                 src="/graphics/brands/logo-hg-white.svg"
                 alt="D10 Hunger logo"
                 class="
-                    w-[60vw] max-w-sm max-h-40 sm:w-48 md:w-24 lg:w-auto lg:h-60
+                    w-[60vw] sm:w-48 md:w-20 lg:w-28 max-w-sm max-h-40
                     block
                     hover:scale-110
                     duration-700 ease-[cubic-bezier(.61, .16, .07, 1.46)]"/>
