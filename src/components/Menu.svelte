@@ -51,7 +51,7 @@ const handleScroll = () => {
     before:absolute before:left-0 before:bottom-0 before:z-20
     before:bg-white before:drop-shadow-menu
     {atTop ? 'before:h-0' : 'before:h-full'}
-    {donationOpen ? 'md:before:translate-y-0' : 'md:before:-translate-y-[189px]'}
+    {donationOpen ? 'md:before:translate-y-0' : 'md:before:-translate-y-[240px]'}
     before:transition-all before:duration-300">
     <div class="
             w-full px-4 sm:px-8 md:px-16
@@ -152,30 +152,36 @@ const handleScroll = () => {
                     <div class="
                             z-0
                             transition-all duration-300
-                            {donationOpen ? 'translate-y-0' : '-translate-y-[189px]'}">
+                            {donationOpen ? 'translate-y-0' : '-translate-y-[248px]'}">
                         <div class="
                                 p-2
                                 flex flex-col gap-2 
                                 {atTop ? 'bg-white' : 'bg-upls-orange'} rounded-b-md
-                                text-[#000] font-bold
+                                font-bold
                                 transition-all duration-300">
                             <!-- TODO: Fix CC link on website launch -->
                             <a 
                                 href="{import.meta.env.PUBLIC_CHILDHOODCANCER_URL}/#donation"
-                                class="py-2 hover:bg-[#f4f4f4] rounded-md transition-all">
+                                class="py-2 hover:bg-[#f4f4f4] rounded-md transition-all {atTop ? 'text-[#000]' : 'text-white hover:text-upls-orange'}">
                                 Childhood Cancer
                             </a>
                             <hr class="mx-8 border-[rgba(0,0,0,0.075)]" />
                             <a 
                                 href="{import.meta.env.PUBLIC_DEFENSEAGAINSTDIABETES_URL}/#donation"
-                                class="py-2 hover:bg-[#f4f4f4] rounded-md transition-all">
+                                class="py-2 hover:bg-[#f4f4f4] rounded-md transition-all {atTop ? 'text-[#000]' : 'text-white hover:text-upls-orange'}">
                                 Defense Against Diabetes
                             </a>
                             <hr class="mx-8 border-[rgba(0,0,0,0.075)]" />
-                            <!-- Change on site launch -->
+                            <a 
+                                href="https://donorbox.org/project-kidsight"
+                                class="py-2 hover:bg-[#f4f4f4] rounded-md transition-all {atTop ? 'text-[#000]' : 'text-white hover:text-upls-orange'}">
+                                Project Kidsight
+                            </a>
+                            <hr class="mx-8 border-[rgba(0,0,0,0.075)]" />
+                            <!-- TODO: Fix Hunger link on site launch -->
                             <a 
                                 href="https://donorbox.org/lions-hunger" 
-                                class="py-2 hover:bg-[#f4f4f4] rounded-md transition-all">
+                                class="py-2 hover:bg-[#f4f4f4] rounded-md transition-all {atTop ? 'text-[#000]' : 'text-white hover:text-upls-orange'}">
                                 Lions Hunger
                             </a>
                         </div>
@@ -231,7 +237,7 @@ const handleScroll = () => {
                 <div class="
                         z-0
                         transition-all duration-300
-                        {donationOpen ? 'translate-y-0' : '-translate-y-[236px]'}">
+                        {donationOpen ? 'translate-y-0' : '-translate-y-[300px]'}">
                     <div class="
                             p-2
                             flex flex-col gap-2 
@@ -248,6 +254,12 @@ const handleScroll = () => {
                             href="{import.meta.env.PUBLIC_DEFENSEAGAINSTDIABETES_URL}/#donation"
                             class="py-4 hover:bg-[#f4f4f4] rounded-md transition-all">
                             Defense Against Diabetes
+                        </a>
+                        <hr class="mx-8 border-[rgba(0,0,0,0.075)]" />
+                        <a 
+                            href="https://donorbox.org/project-kidsight"
+                            class="py-2 hover:bg-[#f4f4f4] rounded-md transition-all">
+                            Project Kidsight
                         </a>
                         <hr class="mx-8 border-[rgba(0,0,0,0.075)]" />
                         <!-- Change on site launch -->
