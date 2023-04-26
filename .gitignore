@@ -20,3 +20,4 @@ pnpm-debug.log*
 
 # old website files
 old_site/
+.vercel
