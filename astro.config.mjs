@@ -1,12 +1,13 @@
 import { defineConfig } from 'astro/config';
+import vercel from '@astrojs/vercel/static';
 
 import svelte from "@astrojs/svelte";
-
-// https://astro.build/config
 import tailwind from "@astrojs/tailwind";
 
-// https://astro.build/config
+
 export default defineConfig({
   site: 'https://uplionsserve.org',
-  integrations: [svelte(), tailwind()]
+  output: "server",
+  adapter: vercel(),
+  integrations: [svelte(), tailwind()],
 });
