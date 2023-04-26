@@ -7,7 +7,7 @@ import tailwind from "@astrojs/tailwind";
 
 export default defineConfig({
   site: 'https://uplionsserve.org',
-  output: "server",
+  output: "static",
   adapter: vercel(),
   integrations: [svelte(), tailwind()],
 });
