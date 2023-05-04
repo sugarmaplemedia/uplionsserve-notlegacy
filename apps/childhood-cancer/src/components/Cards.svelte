@@ -33,7 +33,7 @@ export let button: { text: string, href: string }|null = null
         <Card
             src={`${import.meta.env.BASE_URL}/${card.src}`}
             alt={card.alt}
-            href={`${import.meta.env.BASE_URL}/${card.href}`}>
+            href={card.href}>
             <span slot="title">{card.title}</span>
             <span slot="text">{card.text}</span>
         </Card>
