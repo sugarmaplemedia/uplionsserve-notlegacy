@@ -1,0 +1,14 @@
+{
+    "$schema": "https://turbo.build/schema.json",
+    "globalDependencies": ["**/.env.*local"],
+    "pipeline": {
+        "build": {
+            "outputs": ["./apps/uplionsserve/.vercel/**"],
+            "dependsOn": ["^build"]
+        },
+            "dev": {
+            "cache": false,
+            "persistent": true
+        }
+    }
+}
