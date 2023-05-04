@@ -1,0 +1,154 @@
+---
+import ContentPageLayout from "@layouts/ContentPageLayout.astro";
+import Group from "@components/ContentPage/Group.svelte";
+import Icon from "@components/Icon.svelte";
+
+const CONTENT_WIDTH = "small"
+
+console.log(Astro.request.method)
+if (Astro.request.method === "POST") {
+    try {
+        const data = await Astro.request.formData();
+        const name = data.get("name");
+        const email = data.get("email");
+        const subject = data.get("subject");
+        const message = data.get("message");
+        console.log(name, email, subject, message)
+    } catch (error) {
+        if (error instanceof Error) {
+            console.error(error.message);
+        }
+    }
+}
+---
+
+<ContentPageLayout
+    title="Contact"
+    description="TODO: Description"
+    robots={false}>
+    <Group width={CONTENT_WIDTH} style="py-10 bg-navy-super-light rounded-2xl">
+        <h4>Message Us</h4>
+        <form 
+            method="post"
+            class="flex flex-col gap-3">
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label
+                        for="name" 
+                        class="
+                            block mb-1 
+                            font-bold text-xs uppercase
+                            
+                            after:content-['*']
+                            after:ml-0.5 
+                            after:text-red after:text-xs">
+                            name
+                    </label>
+                    <input
+                        name="name" 
+                        type="text" 
+                        placeholder="John Smith"
+                        required
+                        class="
+                            w-full p-2
+                            rounded-md border-2 border-navy-light
+                            cursor-text "/>
+                </div>
+                <div>
+                    <label
+                        for="email" 
+                        class="
+                            block mb-1 
+                            font-bold text-xs uppercase
+                            
+                            after:content-['*']
+                            after:ml-0.5 
+                            after:text-red after:text-xs">
+                            email
+                    </label>
+                    <input
+                        name="email"
+                        type="email"
+                        placeholder="jsmith@example.com"
+                        required
+                        class="
+                            w-full p-2
+                            rounded-md border-2 border-navy-light
+                            cursor-text"/>
+                </div>
+            </div>
+            <div>
+                <label
+                    for="subject"
+                    class="
+                        block mb-1 
+                        font-bold text-xs uppercase">
+                        subject
+                </label>
+                <input
+                    name="subject"
+                    type="text"
+                    class="
+                        w-full p-2
+                        rounded-md border-2 border-navy-light
+                        cursor-text "/>
+            </div>
+            <div>
+                <label
+                    for="message" 
+                    class="
+                        block mb-1 
+                        font-bold text-xs uppercase
+                        
+                        after:content-['*']
+                        after:ml-0.5 
+                        after:text-red after:text-xs">
+                    message
+                </label>
+                <textarea
+                    name="message"
+                    rows="5"
+                    required
+                    class="
+                        w-full p-2
+                        rounded-md border-2 border-navy-light
+                        cursor-text">
+                </textarea>
+            </div>
+            <button class="bg-navy disabled:bg-navy-light text-white p-2 rounded-md" type="submit">Send</button>
+        </form>
+    </Group>
+    <Group row width={CONTENT_WIDTH} style={`
+            py-10
+            justify-around
+            bg-orange-super-light rounded-2xl`}>
+        <div>
+            <h4 class="mb-2">Meet Us</h4>
+            <ul class="pl-4">
+                <a href="mailto:cc@uplionsserve.org">
+                    <li class="flex items-center gap-4">
+                        <Icon id="mail" styling="w-6 h-6 translate-y-0.5" /> <p>cc@uplionsserve.org</p>
+                    </li>
+                </a>
+            </ul>
+        </div>
+        <div>
+            <h4 class="mb-2">Mail Us</h4>
+            <ul class="pl-4">
+                <li class="flex items-center gap-4">
+                    <Icon id="location" styling="w-6 h-6" />
+                    <p>
+                        District 10 Lions<br />
+                        Childhood Cancer<br />
+                        PO BOX 107<br />
+                        Engadine, Michigan 49827
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </Group>
+</ContentPageLayout>
+
+<script>
+
+</script>
