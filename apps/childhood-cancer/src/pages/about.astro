@@ -1,0 +1,103 @@
+---
+import ContentPageLayout from "@layouts/ContentPageLayout.astro";
+import Group from "@components/ContentPage/Group.svelte";
+import Headline from "@components/_fragments/Headline.svelte";
+import Reference from "@components/_fragments/Reference.svelte";
+---
+
+<!-- TODO: Description -->
+<ContentPageLayout
+    title="About"
+    description=""
+    hero={{src: `${import.meta.env.BASE_URL}/images/banners/about.jpg`, alt: "Tour Da Yoop, Eh cyclists smiling."}}
+    style="!pb-0">
+
+    <!-- Our Mission -->
+    <Group width="large">
+        <Headline id="mission" direction="left">Our <span class="text-orange">Mission</span></Headline>
+        <p>Since our program begin, our mission has been to serve children and families from the Upper Peninsula who are battling childhood cancer. We believe that when a child is sick, the entire family is affected. Our support focuses on the individual along with the entire family.</p>
+        <p>The Childhood Cancer program provides grants to families to minimize the financial hardship that is directly attributable to their child’s diagnosis. This includes needs for travel, medical and household bills.</p>
+        <p>We rely solely on donations from private benefactors, sponsors, Lions Clubs and other community organizations, foundations and fundraisers. Every dollar earned goes directly to the families and to the programs that serve them.</p>
+    </Group>
+    
+    <!-- Our Cause -->
+    <Group width="large">
+        <Headline id="cause" direction="left">Our <span class="text-orange">Cause</span></Headline>
+        <p>Lions Clubs International has adopted Childhood Cancer as an initiative on a global level. Each year, more than 300,000 children are diagnosed with cancer across the world.<Reference href="#cause-ref-1">[1]</Reference> This means that a child is diagnosed with cancer every 2 minute.<Reference href="#cause-ref-1">[1]</Reference> The Lions have been exploring new ways in which Lions can help children with cancer in our own communities.</p>
+        <p>Michigan is ranked 5th in the nation for annual number of pediatric cancer diagnoses. 470 children are diagnosed in Michigan each year.<Reference href="#cause-ref-2">[2]</Reference> Our program has connected with over 70 families in the U.P. The Upper Peninsula has the largest number of children per capita diagnosed with cancer in Michigan.<Reference href="cause-ref-2">[2]</Reference> U.P. families face daunting challenges because they must travel out of our area for care. Many times, one parent is forced to take an extended leave of absence or leave a job to be with their child. Medical treatment can go on for many years, leaving kids with physical, emotional, and sensory deficits.</p>
+        <div class="w-full">
+            <p id="cause-ref-1" class="text-xs scroll-mt-36 md:scroll-mt-32"><sup>[1]</sup>: Statistics from the World Health organization</p>
+            <p id="cause-ref-2" class="text-xs scroll-mt-36 md:scroll-mt-32"><sup>[2]</sup>: Statistics from the Michigan Department of Health and Human Services</p>
+        </div>
+    </Group>
+
+    <!-- Our Statistics | TODO: Clean this up -->
+    <Group width={"full"} style="overflow-hidden !gap-16 md:!gap-12 lg:!gap-16">
+        
+        <!-- Data: Family Graph -->
+        <div class="
+                w-full max-w-3xl px-8 sm:px-16 lg:px-0 
+                flex flex-col gap-4">
+            <Headline id="statistics" direction="left">Our <span class="text-orange">Statistics</span></Headline>
+            <div class="flex flex-col lg:flex-row items-center gap-4 lg:gap-8">
+                <img 
+                    src={`${import.meta.env.BASE_URL}/graphics/data/cc-data-family-chart.svg`}
+                    alt="An illustrative chart showing the increase in recognized families over time."
+                    class="lg:w-full">
+                <div class="max-w-xs space-y-4">
+                    <p>Since our program began, we have seen a rise in the number of families living in the Upper Peninsula of Michigan seeking help with a child battling cancer.</p>
+                    <p class="font-bold">As of December 2022, that number has increased by more than twenty-fold!</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Data: Michigan Total -->
+        <div class="w-full max-w-2xl lg:max-w-3xl flex flex-col md:flex-row-reverse items-center gap-8">
+            <img 
+                src={`${import.meta.env.BASE_URL}/graphics/data/cc-data-michigan-total.svg`}
+                alt="An illustrative graph showing the amount of children in Michigan diagnosed with cancer per year."
+                class="w-full md:w-3/4 lg:w-1/2 ml-8 sm:ml-32 md:ml-0 float-right" />
+
+            <div class=" md:w-3/4 lg:w-1/2 px-8 md:pl-0 flex flex-col gap-4">
+                <p>According to recent figures, 11,000 children in the U.S. were diagnosed with a form of cancer in 2020. Michigan diagnoses approximately 470 children per year with some form of cancer. At any given time there are approximately 2000 children in Michigan battling this dreadful disease.</p>
+                <p class="font-bold">The Upper Peninsula of Michigan has the largest number of cases diagnosed per capita.</p>
+            </div>
+        </div>
+        
+        <!-- Data: Recovery -->
+        <div class="
+            w-full max-w-2xl lg:max-w-3xl px-8 sm:px-16 md:px-0
+            flex flex-col md:flex-row xl:justify-start items-center md:items-center gap-8 lg:gap-16">
+            <img 
+                src={`${import.meta.env.BASE_URL}/graphics/data/cc-data-recovery.svg`}
+                alt="An illustrative graph showing the amount of children in Michigan diagnosed with cancer per year."
+                class="px-4 max-w-[300px] -translate-x-2 sm:-translate-x-6 md:-translate-x-4" />
+
+            <div class="flex flex-col gap-4 md:translate-y-3">
+                <p>Within the past few decades, cancer research has produced promising treatments for pediatric cancer. 60% of children who have had cancer, have lifelong emotional, cognitive, physical, and developmental deficits. The American Cancer Society <a href="https://www.cancer.org/cancer/cancer-in-children/key-statistics.html">provides the most recent estimates and statistics</a> for cancer in children in the United States.</p>
+                <p class="font-bold">Currently in the U.S., the recovery rate for childhood cancer is 84%.</p>
+            </div>
+        </div>
+
+        <!-- Funding -->
+        <div class="
+                w-full xl:pl-16 mt-8 lg:-mt-28
+                lg:flex lg:flex-row-reverse lg:justify-start lg:items-center">
+            <img
+                src={`${import.meta.env.BASE_URL}/graphics/data/cc-data-funding.svg`}
+                alt="An illustrative graph showing the amount of children in Michigan diagnosed with cancer per year."
+                class="
+                    md:w-2/3 max-w-3xl
+                    relative -z-10
+                    scale-125 sm:scale-110 lg:scale-100
+                    -translate-x-6 lg:translate-x-0 sm:translate-y-2 lg:translate-y-1" />
+            <div class="px-8 pb-8 mt-4 lg:mt-0 flex justify-center bg-navy lg:bg-transparent">
+                <div class="max-w-md flex flex-col gap-4">
+                    <p class="text-white lg:text-navy">The Childhood Cancer program has worked hard and received support from several organizations. Fundraisers and donations made by Lions, other organizations and individuals earned over $30,000. Tour Da Yoop, Eh earned over $50,000 in 2022. Graymont and Superior Health Foundation provided grants worth over $25,000. A Legacy Bequeathment has also provided funding.</p>
+                    <p class="text-white lg:text-navy font-bold">In total, The U.P. Lions Serve Childhood Cancer Program has raised over $100,000 through fundraisers, individual donations, and grants!</p>
+                </div>
+            </div>
+        </div>
+    </Group>
+
+</ContentPageLayout>
