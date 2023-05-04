@@ -1,0 +1,61 @@
+---
+import ContentPageLayout from "@layouts/ContentPageLayout.astro";
+import PartnerSpotlight from "@components/partners/PartnerSpotlight.svelte";
+import Group from "@components/ContentPage/Group.svelte";
+import Headline from "@components/_fragments/Headline.svelte";
+import Image from "@components/ContentPage/Image.svelte";
+---
+
+<!-- Fix desc and hero -->
+<ContentPageLayout
+    title="Superior Health Foundation"
+    description=""
+    hero={{src: `${import.meta.env.BASE_URL}/images/banners/superior-health-foundation.jpg`, alt: ""}}>
+
+    <Group>
+        <a href={`${import.meta.env.BASE_URL}/partners`} class="w-full text-sm font-bold">Back to Partners</a>
+        <p>In 2022, U.P. Lions Serve Childhood Cancer was chosen as the SHF 2022 Gala partner, receiving more than $15,000 in grant funding. It will be used to help with travel and medical costs for families who need to travel for care, support development of a camp for pediatric patients and their families at Bay Cliff Health Camp, and support Kids Kicking Cancer, a non-profit that empowers children to manage pain and stress through martial arts and meditation.</p>
+    </Group>
+
+    <Group>
+        <Headline direction="left">Who is the Superior Health Foundation?</Headline>
+        <Image src="/images/partners/superior-health-foundation/gala-2022-check-acceptance.jpg" alt="U.P. Lions Serve Childhood Cancer program accepting grant check during the SHF 2022 Gala." />
+        <p>The Superior Health Foundation (SHF) is a conversion 501c(3) foundation that materialized on September 1st, 2012, following Duke LifePoint’s acquisition of Marquette General Health System. Its mission is to assist with unmet healthcare needs, with health education, and with programs and research on preventing illness and promoting health.</p>
+        <p>That mission includes supporting the unmet healthcare needs of the indigent and uninsured, healthcare education programs, programs and research which have the primary purpose of preventing and reducing illness and disease, and other programs to promote the health, education and welfare of the community.</p>
+        <p class="w-full">Thank you, Superior Health Foundation for your continued support and partnership!</p>
+    </Group>
+
+    <Group>
+        <Image
+            src="https://www.youtube.com/embed/YU_SM6yysyo"
+            alt="U.P. Lions Serve Childhood Cancer video from the SHF 2022 Gala."
+            caption="U.P. Lions Serve Childhood Cancer video from the SHF 2022 Gala." />
+    </Group>
+
+    <Group>
+        <PartnerSpotlight partners={[{
+            organization: "Superior Health Foundation",
+            description: "The Superior Health Foundation is a health-centered, grant-giving organization that provides funding to address equipment, health education and program needs for the residents of the Upper Peninsula.",
+            logo: {
+                src: `${import.meta.env.BASE_URL}/graphics/logos/superior-health-foundation.png`,
+                alt: "Superior Health Foundation logo",
+                span: 2
+            },
+            coverPhoto: {
+                src: `${import.meta.env.BASE_URL}/images/covers/superior-health-foundation.jpg`,
+                alt: "Ballroom holding the SHF 2022 Gala",
+            },
+            link: "https://superiorhealthfoundation.org/",
+        }]} />
+    </Group>
+
+</ContentPageLayout>
+
+<!-- 
+The Superior Health Foundation (SHF) is a conversion 501 c (3) foundation that materialized on Sept. 1 following Duke LifePoint’s acquisition of Marquette General Health System. Its mission is to assist with unmet healthcare needs, with health education, and with programs and research on preventing illness and promoting health. That mission may include supporting (a) the unmet healthcare needs of the indigent and uninsured; (b) healthcare education programs; (c) supporting programs and research which have the primary purpose of preventing and reducing illness and disease; and (d) other programs to promote the health, education and welfare of the community.
+
+In 2022, UP Lions /serve Childhood Cancer was chosen as the SHF 2022 Gala partner, receiving more than $15,000. Its funding will be used to help with travel and medical costs for families who need to travel for care; support development of a camp for pediatric patients and their families at Bay Cliff Health Camp; and support Kids Kicking Cancer, a non-profit that empowers children to manage pain and stress through martial arts and meditation.
+
+The Lions perform exemplary charitable work across the U.P., and with childhood cancer diagnoses rising in the U.P., it’s a great cause to support.
+
+ -->

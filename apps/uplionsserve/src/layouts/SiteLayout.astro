@@ -1,0 +1,84 @@
+---
+import Menu from "@components/Menu.svelte";
+import Banner from "@components/Banner.svelte";
+import Button from "@components/Button.svelte";
+
+interface Props {
+  title?: string
+  description: string
+  robots?: boolean
+}
+const {
+    title,
+    description,
+    robots = true,
+    } = Astro.props
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Basic website setup -->
+        <title>{title ? `${title} - U.P. Lions Serve` : "U.P Lions Serve"}</title>
+        <meta name="description" content={description}>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content={robots ? "index, follow" :"noindex, nofollow"}>
+        
+        <!-- Favicon setup -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+
+        <!-- Font initialization -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+    </head>
+    <body class="
+        min-h-screen
+        bg-gradient-to-t from-upls-orange to-upls-light-orange bg-no-repeat
+        font-sans text-white">
+        <Menu client:load />
+        <main>
+            <slot />
+        </main>
+        <footer>
+            <Banner>
+                <div class="
+                    max-w-2xl lg:w-3/4 lg:max-w-4xl
+                    flex flex-col items-center gap-8 md:flex-row md:justify-between md:items-start">
+                    <a href="https://www.lionsclubs.org/en/explore-our-clubs/our-global-causes" class="
+                        max-w-sm lg:max-w-lg
+                        flex flex-col items-center gap-6
+                        flex-grow
+                        relative
+                        p-6 pb-20 mb-24 rounded-3xl
+                        bg-white
+                        text-upls-orange
+                        drop-shadow-white">
+                        <p>Bringing diverse people together to serve their communities is what Lions Clubs are all about. Become part of the largest service and humanitarian organization in the world. Lions and Leos are raising awareness for our causes around the world.</p>
+                        <p class="font-bold">Interested in learning more about our 5 global causes?</p>
+                        <img src="/graphics/causes.svg" alt="The Five causes of Lions Clubs International: Hunger, Childhood Cancer, Vision, Environment, and Diabetes." class="
+                            max-w-xs"/>
+                        <img src="/graphics/causes-planet.png" alt="" class="
+                            w-48
+                            absolute -bottom-24 right-0"/>
+                    </a>
+                    <div class="
+                        flex flex-col items-center gap-8">
+                        <img
+                            src="/graphics/brands/logo-upls-white.svg"
+                            alt="U.P. Lions Serve logo"
+                            class="
+                                w-64" />
+                        <Button text="Disclaimer" href="/disclaimer"/>
+                        <Button text="Privacy Policy" href="https://www.lionsclubs.org/en/footer/privacy-policy"/>
+                        <Button text="Contact Us" href="mailto:chris@uplionsserve.org"/>
+                    </div>
+                </div>
+            </Banner>
+        </footer>
+    </body>
+</html>

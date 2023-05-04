@@ -1,0 +1,175 @@
+---
+import Layout from "@layouts/BaseLayout.astro";
+import Hero from "@components/home/Hero.svelte";
+import OurPurpose from "@components/home/OurPurpose.svelte";
+import OurProgress from "@components/home/OurProgress.svelte";
+import MediaAndText from "@components/MediaAndText.svelte";
+import Button from "@components/Button.svelte";
+import Cards from "@components/Cards.svelte";
+import OurHeroes from "@components/home/OurHeroes.svelte";
+import CallToAction from "@components/CallToAction.svelte";
+import Group from "@components/ContentPage/Group.svelte";
+import PartnerSpotlight from "@components/partners/PartnerSpotlight.svelte";
+import Headline from "@components/_fragments/Headline.svelte";
+---
+
+<Layout
+    title="U.P. Lions Serve: Childhood Cancer"
+    description="Working every day to raise funds for Upper Peninsula families battling childhood cancer, the U.P. Lions Serve: Childhood Cancer program assembles initiatives to assist these families in paying for travel, medical, and household bills. We provide resources and connect families with life-changing programs, including Camp Quality, Maggie’s Wigs 4 Kids, and Kids Kicking Cancer.">
+    
+    <div class="
+            w-full
+            flex flex-col items-center gap-12
+            overflow-x-hidden
+            bg-offwhite">
+        <Hero />
+
+        <!-- TODO: Receive updates from Chris -->
+        <OurPurpose client:load />
+
+        <!-- TODO: Clean up formatting, code -->
+        <MediaAndText 
+            src={`${import.meta.env.BASE_URL}/images/canDrive5-compressed.jpg`}
+            alt="Female Lions Club member standing next to a banner that reads 'Cans for Kids with Cancer'">
+            <span slot="headline">
+                Our <span class="text-orange">Mission</span>
+            </span>
+            <p>Our mission is to serve children and families from the Upper Peninsula who are battling childhood cancer. We believe that when a child is sick, the entire family is affected. Our support focuses on the individual along with the entire family.</p>
+            <Button href={`${import.meta.env.BASE_URL}/about#mission`} alt="Learn more about our mission">Learn more</Button>
+        </MediaAndText>
+
+        <Group>
+            <Headline>Spotlight <span class="text-orange">Partners</span></Headline>
+            <PartnerSpotlight partners={[
+                {
+                    organization: "Tour Da Yoop, Eh",
+                    description: "The Tour Da Yoop, Eh benefit for Childhood Cancer is a 1,200 mile bike tour around the perimeter of the Upper Peninsula! Enjoy endless nature and lakeside views while cycling across some of the safest roads in the United States.",
+                    logo: {
+                        src: `${import.meta.env.BASE_URL}/graphics/logos/tour-da-yoop-eh.png`,
+                        alt: "Tour Da Yoop, Eh logo",
+                    },
+                    coverPhoto: {
+                        src: `${import.meta.env.BASE_URL}/images/covers/tour-da-yoop-eh.jpg`,
+                        alt: "Tour Da Yoop, Eh cyclists on the road.",
+                    },
+                    link: "https://tourdayoopeh.com/",
+                },
+                {
+                    organization: "Superior Health Foundation",
+                    description: "The Superior Health Foundation is a health-centered, grant-giving organization that provides funding to address equipment, health education and program needs for the residents of the Upper Peninsula.",
+                    logo: {
+                        src: `${import.meta.env.BASE_URL}/graphics/logos/superior-health-foundation.png`,
+                        alt: "Superior Health Foundation logo",
+                        span: 2
+                    },
+                    coverPhoto: {
+                        src: `${import.meta.env.BASE_URL}/images/covers/superior-health-foundation.jpg`,
+                        alt: "Ballroom holding the SHF 2022 Gala",
+                    },
+                    link: "https://superiorhealthfoundation.org/",
+                } ]} client:visible />
+        </Group>
+        
+        <!-- TODO: Add swipe interactivity, update Bay Cliff photo -->
+        <Cards client:visible
+            button={
+                {
+                    text: "View All Partners",
+                    href: `${import.meta.env.BASE_URL}/programs#initiatives`
+                }
+            }
+            content={[
+                { // Northwoods AirLifeLine
+                    src: "/images/cards/northwoods-airlifeline-card.jpg",
+                    alt: "",
+                    href: "https://www.northwoodsairlifeline.org/",
+                    title: "Northwoods AirLifeLine",
+                    text: "Providing free air transportation to medical facilities for patients in need of specialized care."
+                },
+                { // Bay Cliff Health Camp
+                    src: "/images/cards/bay-cliff-health-camp-card.jpg",
+                    alt: "",
+                    href: "https://baycliff.org/",
+                    title: "Bay Cliff Health Camp",
+                    text: "Providing a year-round, nonprofit therapy and wellness center for children and adults with physical disabilities."
+                },
+                // { // UPHS
+                //     src: "/images/cards/uphs-card.jpg",
+                //     alt: "",
+                //     href: "https://www.uphp.com/",
+                //     title: "UPHS",
+                //     text: "Providing a comprehensive health care system for the Upper Peninsula."
+                // },
+                { // Maggie's Wigs 4 Kids
+                    src: "/images/cards/maggies-wigs-4-kids-card.jpg",
+                    alt: "Wigs along a wall",
+                    href: "http://www.wigs4kids.org/",
+                    title: "Maggies Wigs 4 Kids",
+                    text: "Providing hair and skin restoration services to our children in the U.P."
+                },
+                { // Kids Kicking Cancer
+                    src: "/images/cards/kids-kicking-cancer-card.jpg",
+                    alt: "Kids in karate position in a dojo",
+                    href: "https://kidskickingcancer.org/",
+                    title: "Kids Kicking Cancer",
+                    text: "Providing martial arts and meditation/pain control classes to U.P. children and their siblings."
+                },
+                { // Camp Quality
+                    src: "/images/cards/camp-quality-card.jpg",
+                    alt: "",
+                    href: "https://www.campqualityusa.org/mi/",
+                    title: "Camp Quality",
+                    text: "Providing a week-long summer camp experience and year-round support for children with cancer and their families."
+                },
+                // { // Mott Children's Hospital
+                //     src: "/images/cards/mott-childrens-hospital-card.jpg",
+                //     alt: "",
+                //     href: "https://www.mottchildren.org/",
+                //     title: "Mott Children's Hospital",
+                //     text: "Providing a full range of services for children with cancer and their families."
+                // },
+                // { // Children's Wisconsin
+                //     src: "/images/cards/childrens-wisconsin-card.jpg",
+                //     alt: "",
+                //     href: "https://childrenswi.org/",
+                //     title: "Children's Wisconsin",
+                //     text: "Providing a full range of services for children with cancer and their families."
+                // },
+                // { // HSHS St. Vincent Children's Hospital
+                //     src: "/images/cards/hshs-st-vincent-childrens-hospital-card.jpg",
+                //     alt: "",
+                //     href: "https://www.hshs.org/StVincent/Childrens-Hospital",
+                //     title: "St. Vincent Hospital",
+                //     text: "Providing a full range of services for children with cancer and their families."
+                // },
+
+            ]}>
+            <span slot="headline">Our <span class="text-orange">Partners</span></span>
+            <span slot="text">We share information and connect families to other nonprofits that may help, either in-person or remotely.</span>
+        </Cards>
+
+
+
+        <!-- TODO: Improve desktop responsive, Add (Read More) on longer texts -->
+        <OurHeroes client:visible />
+
+        <!-- TODO: Make interactive? -->
+        <OurProgress  />
+
+        <CallToAction
+            src={`${import.meta.env.BASE_URL}/images/GreatLakes-0.1q.jpg`}
+            alt="Birdseye view of a shore on the Great Lakes. By Lucas Ludwig on Unsplash"
+            button={{
+                text: "Help Us Help Them.",
+                href: `${import.meta.env.BASE_URL}/donate`
+            }}>
+            <span slot="title">Michigan is <span class="text-orange">5th in the nation</span> for annual number of  <span class="text-orange">pediatric cancer diagnoses.</span></span>
+            <p class="text-white font-bold">
+                470 children are diagnosed in Michigan each year, and the Upper Peninsula has the largest number of children per capita diagnosed with cancer in the state.
+            </p>
+            <p class="text-white mb-2">
+                U.P. families face daunting challenges because they must travel out of our area for care. Many times, one parent is forced to take an extended leave of absence or leave a job to be with their child. Medical treatment can go on for many years, leaving kids with physical, emotional, and sensory deficits.
+            </p>
+        </CallToAction>
+    </div>
+</Layout>

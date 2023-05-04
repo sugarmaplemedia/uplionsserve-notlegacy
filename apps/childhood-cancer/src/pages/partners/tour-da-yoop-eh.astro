@@ -1,0 +1,48 @@
+---
+import ContentPageLayout from "@layouts/ContentPageLayout.astro";
+import PartnerSpotlight from "@components/partners/PartnerSpotlight.svelte";
+import Group from "@components/ContentPage/Group.svelte";
+import Headline from "@components/_fragments/Headline.svelte";
+import Image from "@components/ContentPage/Image.svelte";
+---
+
+<!-- Fix desc and hero -->
+<ContentPageLayout
+    title="Tour Da Yoop, Eh"
+    description=""
+    hero={{src: `${import.meta.env.BASE_URL}/images/banners/tour-da-yoop-eh.jpg`, alt: "Tour Da Yoop, Eh cyclists lined up for a photo before the final ride of the tour."}}>
+
+    <Group>
+        <a href={`${import.meta.env.BASE_URL}/partners`} class="w-full text-sm font-bold">Back to Partners</a>
+        <p>Our partnership with Tour Da Yoop, Eh has raised more than $55,000 over the past 2 years to help our families in the Upper Peninsula with travel, medical and household bills! The 1,200 mile, 10 day adventure bicycling tour around the U.P has also raised awareness about the daunting challenges our families face when their child is diagnosed with a complex diagnosis and requires specialized care. As one parent says, “The Upper Peninsula is a beautiful place to live but not if you have a sick child that needs treatment”.</p>
+    </Group>
+
+    <Group>
+        <Headline direction="left">What is Tour Da Yoop, Eh?</Headline>
+        <Image src="/images/partners/tour-da-yoop-eh/houghton-hill-street.jpg" alt="TDY cyclists ascending an uphill street in Houghton, MI." />
+        <p>The event begins in Manistique and ends in Manistique, as the bicyclists ride to bring awareness to the TDY mission of promoting bicycle safety in the Upper Peninsula! For ten days, this event brings together participants from all over the United States and from various walks of life, including teachers, investment bankers, hedge fund managers, farmers, college students, business consultants, doctors, and retired folks.</p>
+        <p>A quote from one rider, Zack Smith, describes his experience, "Our common objective was to survive/finish all 10 days, raise money for families dealing with childhood cancer, as well as spread awareness of what these families go through. We arrived as strangers, but the cyclists and support staff departed as friends.</p>
+        <p>"Over the course of the 10 day ride, we discovered a lot about one another and ourselves. We had days when we were completely and utterly exhausted, but these once-strangers provided each other with support and inspiration."</p>
+        <Image src="/images/partners/tour-da-yoop-eh/chris-cancer-family.jpg" alt="Program chair Chris Smith standing with a family from the program." />
+        <p>As the Upper Peninsula Lions Childhood Cancer Chairman, Christine Smith states, "I was honored to be one of the support staff for these amazing cyclists. Over the 10 days, I witnessed the transformation of TDY from being a cycling event to so much more.</p>
+        <p>"The effort was not about achieving your “Personal Best” but to achieve “Everyone’s Best” and celebrate those achievements as a Team! We had the opportunity to meet families along the way and hear about their struggles and their triumphs."</p>
+        <p>UP Lions Serve Childhood Cancer looks forward to a third year of partnership with Tour Da Yoop, Eh!</p>
+    </Group>
+
+    <Group>
+        <PartnerSpotlight partners={[{
+            organization: "Tour Da Yoop, Eh",
+            description: "The Tour Da Yoop, Eh benefit for Childhood Cancer is a 1,200 mile bike tour around the perimeter of the Upper Peninsula! Enjoy endless nature and lakeside views while cycling across some of the safest roads in the United States.",
+            logo: {
+                src: `${import.meta.env.BASE_URL}/graphics/logos/tour-da-yoop-eh.png`,
+                alt: "Tour Da Yoop, Eh logo",
+            },
+            coverPhoto: {
+                src: `${import.meta.env.BASE_URL}/images/covers/tour-da-yoop-eh.jpg`,
+                alt: "Tour Da Yoop, Eh cyclists on the road.",
+            },
+            link: "https://tourdayoopeh.com/",
+        }]} />
+    </Group>
+
+</ContentPageLayout>

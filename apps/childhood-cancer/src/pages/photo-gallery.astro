@@ -1,0 +1,37 @@
+---
+import ContentPageLayout from "@layouts/ContentPageLayout.astro";
+import Group from "@components/ContentPage/Group.svelte";
+import Gallery from "@components/gallery.svelte";
+
+type photo = {
+    alt: string
+    src: string,
+    thumbnailSrc: string,
+}
+
+const photosGlob = Object.values(import.meta.glob("/public/images/gallery/*.jpg", {eager: true, as: "url"}))
+// console.log(photosGlob);
+
+const photos: photo[] = []
+for (const path of photosGlob) {
+    const fileName = (import.meta.env.PROD ? `${path.slice(path.lastIndexOf("/") + 1, path.lastIndexOf(".") - 9)}.jpg` : path.slice(path.lastIndexOf("/") + 1))
+    photos.push({ 
+        alt: "",
+        src: `${import.meta.env.BASE_URL}/images/gallery/${fileName}`,
+        thumbnailSrc: `${import.meta.env.BASE_URL}/images/gallery/thumbnails/${fileName}`
+    })
+}
+
+---
+
+<!-- TODO: Description -->
+<ContentPageLayout
+    title="Photo Gallery"
+    description=""
+    hero={{src: `${import.meta.env.BASE_URL}/images/banners/photo-gallery.jpg`, alt: "Keith Smith and his grandson fishing during a Upper Michigan sunset"}}>
+
+    <Group>
+        <Gallery photos={photos} client:load />
+    </Group>
+
+</ContentPageLayout>
