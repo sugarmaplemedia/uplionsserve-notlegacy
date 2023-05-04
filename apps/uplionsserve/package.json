@@ -8,7 +8,8 @@
         "start": "astro dev",
         "build": "astro build",
         "preview": "astro preview",
-        "astro": "astro"
+        "astro": "astro",
+        "deploy": "vercel deploy --prebuilt --prod"
     },
     "dependencies": {
         "@astrojs/svelte": "^2.1.0",

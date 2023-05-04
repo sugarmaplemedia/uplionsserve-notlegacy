@@ -53,10 +53,6 @@ importers:
       tailwindcss:
         specifier: ^3.2.7
         version: 3.2.7(postcss@8.4.23)
-    devDependencies:
-      tsconfig:
-        specifier: workspace:*
-        version: link:../../packages/tsconfig
 
   apps/uplionsserve:
     dependencies:
@@ -88,11 +84,6 @@ importers:
       '@types/lodash-es':
         specifier: ^4.17.7
         version: 4.17.7
-      tsconfig:
-        specifier: workspace:*
-        version: link:../../packages/tsconfig
-
-  packages/tsconfig: {}
 
 packages:
 

@@ -2,7 +2,8 @@
     "private": true,
     "scripts": {
         "build": "turbo run build",
-        "dev": "turbo run dev"
+        "dev": "turbo run dev",
+        "deploy": "turbo run deploy"
     },
     "dependencies": {
         "@astrojs/svelte": "^2.1.1",

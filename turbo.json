@@ -6,9 +6,13 @@
             "outputs": ["./apps/uplionsserve/.vercel/**"],
             "dependsOn": ["^build"]
         },
-            "dev": {
+        "dev": {
             "cache": false,
             "persistent": true
+        },
+        "deploy": {
+            "cache": false,
+            "dependsOn": ["^build"]
         }
     }
 }
