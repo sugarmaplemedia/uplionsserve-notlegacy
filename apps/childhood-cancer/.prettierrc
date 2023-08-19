@@ -1,0 +1,6 @@
+{
+    "semi": false,
+    "tabWidth": 4,
+    "svelteIndentScriptAndStyle": false,
+    "plugins": ["prettier-plugin-svelte", "prettier-plugin-tailwindcss"]
+}

@@ -11,6 +11,23 @@ import CallToAction from "@components/CallToAction.svelte";
 import Group from "@components/ContentPage/Group.svelte";
 import PartnerSpotlight from "@components/partners/PartnerSpotlight.svelte";
 import Headline from "@components/_fragments/Headline.svelte";
+
+const res = await fetch("http://localhost:3001/api/globals/home?depth=1")
+const payload = await res.json()
+
+const { hero_banner } = payload
+
+// TODO: get types from Payload
+const our_heroes = payload.our_heroes.map((hero: any) => ({
+    name: hero.name,
+    heading: hero.summary,
+    story: hero.story,
+    image: {
+        src: hero.image.url,
+        alt: hero.image.alt
+    }
+}))
+
 ---
 
 <Layout
@@ -22,7 +39,7 @@ import Headline from "@components/_fragments/Headline.svelte";
             flex flex-col items-center gap-12
             overflow-x-hidden
             bg-offwhite">
-        <Hero />
+        <Hero client:load title={hero_banner.title} subtitles={[hero_banner.subtitle_1, hero_banner.subtitle_2]}, button={hero_banner.cta_button} />
 
         <!-- TODO: Receive updates from Chris -->
         <OurPurpose client:load />
@@ -151,7 +168,7 @@ import Headline from "@components/_fragments/Headline.svelte";
 
 
         <!-- TODO: Improve desktop responsive, Add (Read More) on longer texts -->
-        <OurHeroes client:visible />
+        <OurHeroes client:visible heroes={our_heroes} />
 
         <!-- TODO: Make interactive? -->
         <OurProgress  />
