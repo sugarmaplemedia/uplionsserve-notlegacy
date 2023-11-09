@@ -1,3 +1,6 @@
 [submodule "apps/hunger"]
 	path = apps/hunger
 	url = https://github.com/uplionsserve/hunger.git
+[submodule "apps/uplionsserve"]
+	path = apps/uplionsserve
+	url = https://github.com/uplionsserve/uplionsserve.git
