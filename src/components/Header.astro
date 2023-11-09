@@ -1,0 +1,50 @@
+---
+
+---
+
+<header class="m-auto flex w-full max-w-7xl items-center gap-4">
+	<!-- <a href="/" id="back-button"> </a> -->
+	<div>
+		<a
+			href="/"
+			class="bg-primary flex h-8 w-8 items-center justify-center rounded-full before:hidden"
+		>
+			<span class="block -translate-x-[1px] -rotate-90 text-white">&#9650;</span
+			>
+		</a>
+	</div>
+	<div>
+		<a href="/hunger" class="before:hidden"
+			><img src="/hunger/logo.svg" alt="" class="w-32" /></a
+		>
+	</div>
+	<menu class="flex gap-6">
+		<li><a href="/hunger">Home</a></li>
+		<li><a href="/hunger/programs">Programs</a></li>
+		<li><a href="/hunger/about">About</a></li>
+	</menu>
+</header>
+
+<style>
+	#back-button {
+		display: block;
+		width: 110px;
+		height: fit-content;
+		padding: 5px 10px;
+
+		background-color: #f37728;
+		font-size: 1.25rem;
+		font-weight: 900;
+		text-transform: uppercase;
+		line-height: 1.75rem;
+		color: white;
+	}
+
+	#back-button::before {
+		display: none;
+	}
+
+	menu a {
+		font-size: 1.5rem;
+	}
+</style>
