@@ -1,0 +1,12 @@
+{
+	"rewrites": [
+		{
+			"source": "/defenseagainstdiabetes",
+			"destination": "/defense-against-diabetes"
+		},
+		{
+			"source": "/defenseagainstdiabetes/:match*",
+			"destination": "/defense-against-diabetes/:match*"
+		}
+	]
+}
