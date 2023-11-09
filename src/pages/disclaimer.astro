@@ -1,0 +1,18 @@
+---
+import SiteLayout from "@layouts/SiteLayout.astro"
+import Banner from "@components/Banner.svelte"
+---
+
+<SiteLayout 
+    title="Disclaimer"
+    description="Test">
+    <Banner customClasses={`pt-56 text-xl`}>
+        <div class="max-w-5xl flex flex-col gap-6">
+            <h1 class="text-6xl font-black">Disclaimer</h1>
+            <p>The content and views shared on UPlionsserve.org is provided for information purposes only and is not intended to be a substitute for professional medical advice, diagnosis, or treatment.</p>
+            <p>Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.</p>
+            <p>If you think you may have a medical emergency, call your doctor or 911.</p>
+            <p>It is our sincere hope that the resources here will assist you, inform you, guide you and inspire you!</p>
+        </div>            
+    </Banner>
+</SiteLayout>
