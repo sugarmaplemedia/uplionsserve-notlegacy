@@ -4,3 +4,6 @@
 [submodule "apps/uplionsserve"]
 	path = apps/uplionsserve
 	url = https://github.com/uplionsserve/uplionsserve.git
+[submodule "apps/childhood-cancer"]
+	path = apps/childhood-cancer
+	url = https://github.com/uplionsserve/childhood-cancer.git
