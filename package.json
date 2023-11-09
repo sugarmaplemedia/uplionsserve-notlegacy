@@ -3,12 +3,16 @@
 	"version": "2.1.0",
 	"private": true,
 	"workspaces": [
-		"apps/hunger",
-		"apps/uplionsserve"
+		"apps/*"
 	],
 	"scripts": {
-		"build": "turbo run build",
-		"dev": "turbo run dev",
-		"deploy": "turbo run deploy"
+		"build:upls": "cd apps/uplionsserve && bun run build",
+		"build:cc": "cd apps/childhood-cancer && bun run build",
+		"build:hunger": "cd apps/hunger && bun run build",
+		"build:all": "bun run build:upls && bun run build:cc && bun run build:hunger",
+		"dev:upls": "cd apps/uplionsserve && bun run dev",
+		"dev:cc": "cd apps/childhood-cancer && bun run dev",
+		"dev:hunger": "cd apps/hunger && bun run dev",
+		"preview": "cd apps/uplionsserve && bun run preview"
 	}
 }
